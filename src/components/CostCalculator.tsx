@@ -144,9 +144,9 @@ Could we schedule a site visit or consultation to discuss?`;
         <div className="lg:col-span-7 space-y-7 sm:space-y-8 bg-surface p-5 sm:p-8 rounded-2xl border border-line">
           {/* Step 1: Select Property Configuration */}
           <div>
-            <label className="block text-xs font-semibold uppercase tracking-wider text-ink-soft mb-3">
+            <div className="block text-xs font-semibold uppercase tracking-wider text-ink-soft mb-3">
               1. Choose Apartment / Space Configuration
-            </label>
+            </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
               {PROPERTY_TYPES.map((prop) => {
                 const active = propertyType === prop.id;
@@ -171,9 +171,9 @@ Could we schedule a site visit or consultation to discuss?`;
 
           {/* Step 2: Select Finish Tier */}
           <div>
-            <label className="block text-xs font-semibold uppercase tracking-wider text-ink-soft mb-3">
+            <div className="block text-xs font-semibold uppercase tracking-wider text-ink-soft mb-3">
               2. Select Material & Finish Package
-            </label>
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               {FINISH_TIERS.map((tier) => {
                 const active = finishTier === tier.id;
@@ -217,9 +217,9 @@ Could we schedule a site visit or consultation to discuss?`;
 
           {/* Step 3: Scope Checklist */}
           <div>
-            <label className="block text-xs font-semibold uppercase tracking-wider text-ink-soft mb-3">
+            <div className="block text-xs font-semibold uppercase tracking-wider text-ink-soft mb-3">
               3. Customize Included Scope Items
-            </label>
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
               {SCOPE_ITEMS.map((item) => {
                 const checked = selectedScopes.includes(item.id);

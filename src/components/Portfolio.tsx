@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { PORTFOLIO_PROJECTS, ProjectItem, BUSINESS_DATA } from '../data/businessData';
 import { MapPin, Clock, Maximize2, X, MessageCircle, Check, ArrowRight } from 'lucide-react';
 
@@ -14,6 +14,19 @@ const CATEGORIES = [
 export const Portfolio: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [activeModalProject, setActiveModalProject] = useState<ProjectItem | null>(null);
+
+  useEffect(() => {
+    if (!activeModalProject) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setActiveModalProject(null);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', onKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [activeModalProject]);
 
   const filteredProjects =
     selectedCategory === 'all'
@@ -117,8 +130,17 @@ export const Portfolio: React.FC = () => {
 
       {/* Project Spec Modal */}
       {activeModalProject && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-ink/60 backdrop-blur-md">
-          <div className="bg-surface border border-line-strong rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative p-6 sm:p-8">
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-ink/60 backdrop-blur-md"
+          onClick={() => setActiveModalProject(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label={activeModalProject.title}
+        >
+          <div
+            className="bg-surface border border-line-strong rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative p-6 sm:p-8"
+            onClick={(e) => e.stopPropagation()}
+          >
             <button
               onClick={() => setActiveModalProject(null)}
               type="button"

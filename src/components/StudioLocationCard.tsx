@@ -286,10 +286,12 @@ export const StudioLocationCard: React.FC = () => {
           ) : (
             <form onSubmit={handleFormSubmit} className="space-y-4">
               <div>
-                <label className="block text-xs font-medium text-ink-soft mb-1">
+                <label htmlFor="site-name" className="block text-xs font-medium text-ink-soft mb-1">
                   Full Name *
                 </label>
                 <input
+                  id="site-name"
+                  name="name"
                   type="text"
                   required
                   placeholder="e.g. Aditya Verma"
@@ -301,10 +303,12 @@ export const StudioLocationCard: React.FC = () => {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-medium text-ink-soft mb-1">
+                  <label htmlFor="site-phone" className="block text-xs font-medium text-ink-soft mb-1">
                     Phone / WhatsApp Number *
                   </label>
                   <input
+                    id="site-phone"
+                    name="phone"
                     type="tel"
                     required
                     placeholder="+91 98765 43210"
@@ -314,10 +318,12 @@ export const StudioLocationCard: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-ink-soft mb-1">
+                  <label htmlFor="site-email" className="block text-xs font-medium text-ink-soft mb-1">
                     Email Address
                   </label>
                   <input
+                    id="site-email"
+                    name="email"
                     type="email"
                     placeholder="name@example.com"
                     value={formData.email}
@@ -329,10 +335,12 @@ export const StudioLocationCard: React.FC = () => {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-medium text-ink-soft mb-1">
+                  <label htmlFor="site-area" className="block text-xs font-medium text-ink-soft mb-1">
                     Property Location (Mumbai)
                   </label>
                   <select
+                    id="site-area"
+                    name="propertyArea"
                     value={formData.propertyArea}
                     onChange={(e) => setFormData({ ...formData, propertyArea: e.target.value })}
                     className="w-full px-3 py-2.5 rounded-xl bg-canvas border border-line text-sm text-ink focus:outline-none focus:border-clay transition-colors"
@@ -349,10 +357,12 @@ export const StudioLocationCard: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-ink-soft mb-1">
+                  <label htmlFor="site-type" className="block text-xs font-medium text-ink-soft mb-1">
                     Space Type
                   </label>
                   <select
+                    id="site-type"
+                    name="projectType"
                     value={formData.projectType}
                     onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
                     className="w-full px-3 py-2.5 rounded-xl bg-canvas border border-line text-sm text-ink focus:outline-none focus:border-clay transition-colors"
@@ -368,10 +378,12 @@ export const StudioLocationCard: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-ink-soft mb-1">
+                <label htmlFor="site-notes" className="block text-xs font-medium text-ink-soft mb-1">
                   Additional Notes / Floor Plan Details
                 </label>
                 <textarea
+                  id="site-notes"
+                  name="notes"
                   rows={2}
                   placeholder="e.g. Possession next month, need modular kitchen + 2 wardrobes and ceiling lights..."
                   value={formData.notes}
