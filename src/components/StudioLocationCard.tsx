@@ -293,6 +293,7 @@ export const StudioLocationCard: React.FC = () => {
                   id="site-name"
                   name="name"
                   type="text"
+                  autoComplete="name"
                   required
                   placeholder="e.g. Aditya Verma"
                   value={formData.name}
@@ -310,6 +311,7 @@ export const StudioLocationCard: React.FC = () => {
                     id="site-phone"
                     name="phone"
                     type="tel"
+                    autoComplete="tel"
                     required
                     placeholder="+91 98765 43210"
                     value={formData.phone}
@@ -325,6 +327,7 @@ export const StudioLocationCard: React.FC = () => {
                     id="site-email"
                     name="email"
                     type="email"
+                    autoComplete="email"
                     placeholder="name@example.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
